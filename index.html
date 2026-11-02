@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>온글 타자연습</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-mark" aria-label="온글 홈"><span>온</span><i></i></div>
+      <div class="brand-copy">
+        <p class="eyebrow">KOREAN TYPING LAB</p>
+        <h1>온글</h1>
+        <p>매일 한 줄, 더 단단한 손끝.</p>
+      </div>
+
+      <nav class="mode-nav" aria-label="연습 모드">
+        <p class="section-label">연습 모드</p>
+        <button class="mode-button active" data-mode="word"><span class="mode-icon">가</span><span><strong>단어</strong><small>짧고 빠르게</small></span><b>01</b></button>
+        <button class="mode-button" data-mode="sentence"><span class="mode-icon">문</span><span><strong>문장</strong><small>리듬을 익히기</small></span><b>02</b></button>
+        <button class="mode-button" data-mode="passage"><span class="mode-icon">글</span><span><strong>장문</strong><small>집중력 쌓기</small></span><b>03</b></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="today-card">
+          <div class="today-heading"><span>오늘의 기록</span><span class="live-dot"></span></div>
+          <strong id="today-count">0</strong><span>분 연습했어요</span>
+          <div class="mini-progress"><i id="today-progress"></i></div>
+          <small id="goal-copy">목표 20분까지 20분 남음</small>
+        </div>
+        <p class="sidebar-note">꾸준함은 가장 조용한<br />실력의 증거입니다.</p>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div><span class="status-dot"></span><span id="mode-kicker">단어 연습</span><span class="slash">/</span><span class="muted">세션 01</span></div>
+        <div class="top-actions"><button class="icon-button" id="sound-toggle" aria-label="효과음 켜기" title="효과음 켜기">◖</button><button class="avatar" aria-label="프로필">윤</button></div>
+      </header>
+
+      <section class="practice-wrap">
+        <div class="practice-heading">
+          <div><p class="overline">TODAY'S PRACTICE</p><h2 id="practice-title">손끝에 단어를 담아보세요<span>.</span></h2></div>
+          <div class="streak"><span class="fire">✦</span><div><strong id="streak-value">0일</strong><small>연속 기록</small></div></div>
+        </div>
+
+        <div class="progress-track"><div id="session-progress"></div></div>
+        <div class="progress-meta"><span id="item-count">01 / 15</span><span id="progress-label">오늘의 15단어</span><span id="timer">00:00</span></div>
+
+        <div class="passage-picker" id="passage-picker" hidden>
+          <label for="passage-select">연습할 장문 선택</label>
+          <select id="passage-select" aria-label="연습할 장문 선택"></select>
+        </div>
+
+        <div class="typing-card" id="typing-card">
+          <div class="card-top"><span id="level-label">BEGINNER</span><button class="reset-button" id="reset-button"><span>↻</span> 다시 시작</button></div>
+          <div class="prompt" id="prompt" aria-live="polite"></div>
+          <label class="input-label" for="typing-input">여기에 입력하세요</label>
+          <textarea id="typing-input" rows="2" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="타이핑 입력"></textarea>
+          <div class="card-footer"><span class="hint"><span class="key">⌘</span> 시작하려면 입력창을 클릭하세요</span><span id="error-count">오타 0</span></div>
+        </div>
+
+        <div class="completion-card" id="completion-view" hidden>
+          <span class="completion-mark">✓</span>
+          <p class="overline">SESSION COMPLETE</p>
+          <h3>한 세트를 완주했어요<span>.</span></h3>
+          <p id="completion-copy">오늘의 연습을 모두 마쳤습니다.</p>
+          <button class="completion-button" id="completion-restart">다시 연습하기 <span>↗</span></button>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-box"><span class="stat-icon speed">↗</span><div><small>타자 속도</small><strong><span id="wpm">0</span> <em>타/분</em></strong></div></div>
+          <div class="stat-box"><span class="stat-icon accuracy">◎</span><div><small>정확도</small><strong><span id="accuracy">100</span><em>%</em></strong></div></div>
+          <div class="stat-box"><span class="stat-icon best">★</span><div><small>오늘의 최고</small><strong><span id="best">0</span><em>타/분</em></strong></div></div>
+        </div>
+
+        <footer class="main-footer"><span>온글은 입력한 내용을 저장하지 않습니다.</span><span><kbd>Tab</kbd> 모드 이동 &nbsp; <kbd>Esc</kbd> 다시 시작</span></footer>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
